@@ -15,7 +15,7 @@ function get_ip_wlan() {
 }
 
 function get_ip_eth() {
-  ip=`ifconfig | grep 'inet addr' | grep '10' | awk -F ' ' '{print $1" " $2}'`
+  ip=`ifconfig | grep 'inet addr' | grep '10' | awk -F ' ' '{print $1" " $2}' | awk -F ':' '{print $2}'`
   if [[ $ip != *"."* ]]; then
     ip=""
   fi
